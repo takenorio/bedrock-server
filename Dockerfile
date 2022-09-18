@@ -5,12 +5,12 @@ ARG DOWNLOAD_URL='https://www.minecraft.net/en-us/download/server/bedrock'
 
 WORKDIR /bedrock
 
-RUN apt-get update \
+RUN apt-get -qq update \
     && apt-get -y install curl unzip \
     && SERVER_ARCHIVE=$(curl -sH "User-Agent: $USER_AGENT" "$DOWNLOAD_URL" \
         | grep -Eo 'https://.+linux.+zip') \
     && curl -sOL "$SERVER_ARCHIVE" \
-    && unzip bedrock-server-*.zip \
+    && unzip -q bedrock-server-*.zip \
     && rm -f bedrock-server-*.zip \
     && mkdir /usr/local/lib/x86_64-linux-gnu \
     && cp \
