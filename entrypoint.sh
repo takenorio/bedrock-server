@@ -1,8 +1,7 @@
-#!/usr/bin/env bash
+#!/busybox/sh
 
 set -o errexit
 set -o nounset
-set -o pipefail
 
 cat << EOM > ./server.properties
 server-name=${SERVER_NAME:-Dedicated Server}

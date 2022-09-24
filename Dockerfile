@@ -56,7 +56,7 @@ RUN apt-get -qq update \
         /usr/local/lib/x86_64-linux-gnu
 
 
-FROM debian:bullseye-slim AS bedrock_server
+FROM gcr.io/distroless/base:debug AS bedrock_server
 
 WORKDIR /bedrock
 
